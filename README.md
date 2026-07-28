@@ -20,7 +20,6 @@
 
 F5 XC content delivery network
 
-
 ## Documentation
 
 Full documentation is available at **[https://f5-sales-demo.github.io/cdn/](https://f5-sales-demo.github.io/cdn/)**.
