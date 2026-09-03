@@ -1,11 +1,54 @@
 ---
-title: CDN
-description: Content delivery network and edge caching for F5 Distributed Cloud.
-hero:
-  tagline: Content delivery network and edge caching.
-  image:
-    html: '<img src="/cdn/images/hero.svg" alt="F5 XC CDN" />'
-sidebar:
-  hidden: true
-  order: 0
+title: F5 Distributed Cloud Content Delivery Network
+description: Global edge caching, origin shielding, dynamic content acceleration, and cache rule optimization.
 ---
+
+import { Card, CardGrid } from '@astrojs/starlight/components';
+
+**F5 Distributed Cloud Content Delivery Network** (CDN) delivers ultra-low-latency web content and static asset distribution through F5's globally distributed Edge Points of Presence (PoPs).
+
+## Edge Caching Architecture
+
+```text
++-------------------------------------------------------------------------+
+|                         CDN Caching Architecture                        |
+|                                                                         |
+|  End User Client                                                        |
+|        |                                                                |
+|        v                                                                |
+|  +-------------------------------------------------------------------+  |
+|  | Anycast Edge PoP: TCP Termination, TLS Offload, HTTP/2 & HTTP/3   |  |
+|  +---------------------------------+---------------------------------+  |
+|                                    |                                    |
+|         +--------------------------+--------------------------+         |
+|         | Cache Hit                                           | Cache   |
+|         |                                                     | Miss    |
+|         v                                                     v         |
+|  +-----------------------------+               +---------------------+  |
+|  | Immediate Edge Delivery     |               | Origin Shield PoP   |  |
+|  | (X-Cache: HIT)              |               +----------+----------+  |
+|  +-----------------------------+                          |             |
+|                                                           v             |
+|                                                +---------------------+  |
+|                                                | Customer Origin VM /|  |
+|                                                | Cloud Backend       |  |
+|                                                +---------------------+  |
++-------------------------------------------------------------------------+
+```
+
+## Core Features
+
+<CardGrid>
+  <Card title="Global Anycast Routing" icon="star">
+    Routes requests to the geographically nearest Edge PoP with automatic failover.
+  </Card>
+  <Card title="Origin Shielding" icon="seti:shield">
+    Consolidates cache misses across global edge PoPs into a regional shield to minimize origin load.
+  </Card>
+  <Card title="Custom Cache Keys" icon="puzzle">
+    Customize cache partitioning based on query parameters, request headers, or cookie values.
+  </Card>
+  <Card title="Instant Cache Purge" icon="document">
+    Purge cache globally in seconds by URL, wildcard prefix, or surrogate cache tags.
+  </Card>
+</CardGrid>
